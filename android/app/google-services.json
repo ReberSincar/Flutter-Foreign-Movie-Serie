@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1022341551123",
+    "firebase_url": "https://foreign-serie-film-engvideopro.firebaseio.com",
+    "project_id": "foreign-serie-film-engvideopro",
+    "storage_bucket": "foreign-serie-film-engvideopro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022341551123:android:a5a73ca5b625ef12cbdbe6",
+        "android_client_info": {
+          "package_name": "com.trendsoftwares.foreign_movie_watch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022341551123-o7acokpu4jj0ojskg1m9qqsnivo3fi4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzoKVrX3F6ECD7DyiQcwJFKNdwt4v_JtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022341551123-o7acokpu4jj0ojskg1m9qqsnivo3fi4c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1022341551123-b2muu8tjgjn4fmgpqhdrarmpqmgmii9p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trendsoftwares.foreignMovieWatch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
