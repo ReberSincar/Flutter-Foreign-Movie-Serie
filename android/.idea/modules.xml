@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1751092762/android.auto_orientation.iml" filepath="$PROJECT_DIR$/.idea/modules/1751092762/android.auto_orientation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/904983230/android.cloud_firestore.iml" filepath="$PROJECT_DIR$/.idea/modules/904983230/android.cloud_firestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-459765095/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/-459765095/android.firebase_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/738624184/android.ironsource.iml" filepath="$PROJECT_DIR$/.idea/modules/738624184/android.ironsource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1454928379/android.path_provider.iml" filepath="$PROJECT_DIR$/.idea/modules/-1454928379/android.path_provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1983903804/android.screen.iml" filepath="$PROJECT_DIR$/.idea/modules/-1983903804/android.screen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1502503523/android.sqflite.iml" filepath="$PROJECT_DIR$/.idea/modules/-1502503523/android.sqflite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/70680448/android.video_player.iml" filepath="$PROJECT_DIR$/.idea/modules/70680448/android.video_player.iml" />
+    </modules>
+  </component>
+</project>
