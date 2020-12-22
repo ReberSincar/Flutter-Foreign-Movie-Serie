@@ -48,24 +48,11 @@ class SelectEpisodeLanguageDialog extends StatelessWidget {
                       episodeController.selectedSerie.watchCount);
                 },
                 focusColor: Colors.blue,
-                child: CachedNetworkImage(
-                    imageUrl:
-                        episodeController.selectedEpisode.episodeFlags[index],
-                    width: 30,
-                    height: 40,
-                    placeholder: (context, url) {
-                      return Center(
-                        child: SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: RefreshProgressIndicator(
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.grey),
-                          ),
-                        ),
-                      );
-                    },
-                    fit: BoxFit.cover),
+                child: Image.network(
+                  episodeController.selectedEpisode.episodeFlags[index],
+                  width: 40,
+                  height: 30,
+                ),
               );
             },
           ),

@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:foreign_movie_watch/controllers/episode_controller.dart';
 import 'package:foreign_movie_watch/ui/dialogs/select_episode_language_dialog.dart';
@@ -156,7 +155,7 @@ class _SerieDetailsPageState extends State<SerieDetailsPage> {
                             child: Image.asset("assets/play_icon.png"),
                           ),
                           Spacer(
-                            flex: 5,
+                            flex: orientation == Orientation.portrait ? 5 : 2,
                           ),
                           Expanded(
                             flex: 40,
@@ -194,22 +193,33 @@ class _SerieDetailsPageState extends State<SerieDetailsPage> {
     );
   }
 
-  GridView buildFlagGrid(int index) {
-    return GridView.builder(
-      padding: EdgeInsets.zero,
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: orientation == Orientation.portrait
-          ? SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 10, mainAxisSpacing: 5, crossAxisSpacing: 5)
-          : SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 15, mainAxisSpacing: 1, crossAxisSpacing: 1),
-      itemCount: episodeController.documentList[index].episodeFlags.length,
-      itemBuilder: (context, subIndex) {
-        return CustomCachedImage(
-            imageUrl:
-                episodeController.documentList[index].episodeFlags[subIndex]);
-      },
+  Column buildFlagGrid(int index) {
+    return Column(
+      children: [
+        SizedBox(height: 10),
+        GridView.builder(
+          padding: EdgeInsets.zero,
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: orientation == Orientation.portrait
+              ? SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.6,
+                  crossAxisCount: 10,
+                  mainAxisSpacing: 5,
+                  crossAxisSpacing: 5)
+              : SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.6,
+                  crossAxisCount: 20,
+                  mainAxisSpacing: 1,
+                  crossAxisSpacing: 10),
+          itemCount: episodeController.documentList[index].episodeFlags.length,
+          itemBuilder: (context, subIndex) {
+            return CustomCachedImage(
+                imageUrl: episodeController
+                    .documentList[index].episodeFlags[subIndex]);
+          },
+        ),
+      ],
     );
   }
 

@@ -48,23 +48,11 @@ class SelectMovieLanguageDialog extends StatelessWidget {
                       movieController.selectedMovie.watchCount);
                 },
                 focusColor: Colors.blue,
-                child: CachedNetworkImage(
-                    imageUrl: movieController.selectedMovie.flags[index],
-                    width: 30,
-                    height: 40,
-                    placeholder: (context, url) {
-                      return Center(
-                        child: SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: RefreshProgressIndicator(
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.grey),
-                          ),
-                        ),
-                      );
-                    },
-                    fit: BoxFit.cover),
+                child: Image.network(
+                  movieController.selectedMovie.flags[index],
+                  width: 40,
+                  height: 30,
+                ),
               );
             },
           ),

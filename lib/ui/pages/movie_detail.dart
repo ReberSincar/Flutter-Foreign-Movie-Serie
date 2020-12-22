@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:foreign_movie_watch/ads/ironsource_ads.dart';
 import 'package:foreign_movie_watch/controllers/movie_controller.dart';
@@ -133,9 +132,15 @@ class MovieDetailPage extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: orientation == Orientation.portrait
             ? SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 10, mainAxisSpacing: 5, crossAxisSpacing: 5)
+                childAspectRatio: 1.6,
+                crossAxisCount: 10,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5)
             : SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5, mainAxisSpacing: 1, crossAxisSpacing: 1),
+                childAspectRatio: 1.6,
+                crossAxisCount: 5,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10),
         itemCount: movieController.selectedMovie.flags.length,
         itemBuilder: (context, subIndex) {
           return CustomCachedImage(
