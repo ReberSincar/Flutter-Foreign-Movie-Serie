@@ -43,6 +43,7 @@ class MovieContainer extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 10),
             child: Text(
               movie.name,
+              overflow: TextOverflow.ellipsis,
               style: whiteTextStyle,
               textAlign: TextAlign.center,
             ),

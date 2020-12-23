@@ -35,6 +35,7 @@ class _MoviesPageState extends State<MoviesPage>
     return Center(
       child: Text(
         "movies_no_movie".tr,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(color: Colors.white),
       ),
     );

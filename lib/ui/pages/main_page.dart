@@ -67,6 +67,7 @@ class _MainPagesState extends State<MainPages>
               () => MaterialButton(
                 child: Text(
                   "appbar_serie_tab".tr,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
@@ -88,6 +89,7 @@ class _MainPagesState extends State<MainPages>
               () => MaterialButton(
                 child: Text(
                   "appbar_movie_tab".tr,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
@@ -112,7 +114,10 @@ class _MainPagesState extends State<MainPages>
   AppBar buildAppBar() {
     return AppBar(
       backgroundColor: mainColor,
-      title: Text("appbar_title".tr),
+      title: Text(
+        "appbar_title".tr,
+        overflow: TextOverflow.ellipsis,
+      ),
       actions: [
         IconButton(
           focusColor: Colors.blue,

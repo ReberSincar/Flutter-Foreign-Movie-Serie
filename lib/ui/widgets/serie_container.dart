@@ -33,6 +33,7 @@ class SerieContainer extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 10),
             child: Text(
               serie.name,
+              overflow: TextOverflow.ellipsis,
               style: whiteTextStyle,
               textAlign: TextAlign.center,
             ),

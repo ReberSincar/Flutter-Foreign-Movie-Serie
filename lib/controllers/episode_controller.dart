@@ -29,6 +29,7 @@ class EpisodeController extends GetxController {
           child: Text(
             "season".tr + " $i",
             style: TextStyle(color: Colors.white),
+            overflow: TextOverflow.ellipsis,
           ),
           value: "Season-$i",
         ),

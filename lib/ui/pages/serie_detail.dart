@@ -42,6 +42,7 @@ class _SerieDetailsPageState extends State<SerieDetailsPage> {
         elevation: 50,
         title: Text(
           episodeController.selectedSerie.name,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
@@ -90,6 +91,7 @@ class _SerieDetailsPageState extends State<SerieDetailsPage> {
           children: <Widget>[
             Text(
               "serie_detail_seasons".tr,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(color: Colors.white, fontSize: 24),
             ),
             SizedBox(
@@ -165,6 +167,7 @@ class _SerieDetailsPageState extends State<SerieDetailsPage> {
                                   episodeController
                                       .documentList[index].episodeSeq
                                       .toString(),
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
@@ -178,6 +181,7 @@ class _SerieDetailsPageState extends State<SerieDetailsPage> {
                                   " " +
                                   'duration_min'.tr,
                               textAlign: TextAlign.end,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
@@ -232,6 +236,7 @@ class _SerieDetailsPageState extends State<SerieDetailsPage> {
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         title: Text(episodeController.selectedSerie.name,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Colors.white,
               fontSize: 16.0,

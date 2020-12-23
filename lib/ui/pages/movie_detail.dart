@@ -34,6 +34,7 @@ class MovieDetailPage extends StatelessWidget {
         elevation: 50,
         title: Text(
           movieController.selectedMovie.name,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
@@ -75,6 +76,7 @@ class MovieDetailPage extends StatelessWidget {
           SizedBox(width: 10),
           Text(
             "movie_detail_play".tr,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Colors.white,
               fontSize: 25,
@@ -160,6 +162,7 @@ class MovieDetailPage extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         title: Text(movieController.selectedMovie.name,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Colors.white,
               fontSize: 16.0,

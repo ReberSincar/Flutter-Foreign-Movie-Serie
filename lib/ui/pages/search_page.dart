@@ -56,7 +56,11 @@ class _SearchPageState extends State<SearchPage> {
           stream: searchController.streamQuery.value,
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasError) return new Text('Error: ${snapshot.error}');
+            if (snapshot.hasError)
+              return new Text(
+                'Error: ${snapshot.error}',
+                overflow: TextOverflow.ellipsis,
+              );
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
                 return Center(child: buildLoading());
@@ -75,6 +79,7 @@ class _SearchPageState extends State<SearchPage> {
     return Center(
       child: Text(
         'search_no_result'.tr,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(color: Colors.white, fontSize: 18),
       ),
     );
@@ -105,48 +110,53 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  InkWell buildSearchResultContainer(bool isSerie, model) {
-    return InkWell(
-      onTap: () {
-        if (isSerie) {
-          serieController.selectedSerie = model;
-          episodeController.changeSerie(model);
-          Get.to(SerieDetailsPage());
-        } else {
-          movieController.selectedMovie = model;
-          Get.to(MovieDetailPage());
-        }
-      },
-      focusColor: Colors.red,
-      child: Row(
-        children: [
-          Container(
-            child: CachedNetworkImage(
-                imageUrl: model.contentImage,
-                width: 100,
-                height: 100,
-                placeholder: (context, url) {
-                  return Center(
-                    child: SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: RefreshProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
+  Padding buildSearchResultContainer(bool isSerie, model) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18),
+      child: InkWell(
+        onTap: () {
+          if (isSerie) {
+            serieController.selectedSerie = model;
+            episodeController.changeSerie(model);
+            Get.to(SerieDetailsPage());
+          } else {
+            movieController.selectedMovie = model;
+            Get.to(MovieDetailPage());
+          }
+        },
+        focusColor: Colors.red,
+        child: Row(
+          children: [
+            Container(
+              child: CachedNetworkImage(
+                  imageUrl: model.contentImage,
+                  width: 100,
+                  height: 100,
+                  placeholder: (context, url) {
+                    return Center(
+                      child: SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: RefreshProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.grey),
+                        ),
                       ),
-                    ),
-                  );
-                },
-                fit: BoxFit.cover),
-          ),
-          Text(
-            model.name,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
+                    );
+                  },
+                  fit: BoxFit.cover),
             ),
-            overflow: TextOverflow.ellipsis,
-          )
-        ],
+            SizedBox(width: 10),
+            Text(
+              model.name,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+              overflow: TextOverflow.ellipsis,
+            )
+          ],
+        ),
       ),
     );
   }

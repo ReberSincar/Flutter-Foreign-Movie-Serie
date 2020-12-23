@@ -34,7 +34,11 @@ class RecommendedContainer extends StatelessWidget {
                 child: RefreshProgressIndicator(),
               ),
             );
-          if (snapshot.hasError) return new Text('Error: ${snapshot.error}');
+          if (snapshot.hasError)
+            return new Text(
+              'Error: ${snapshot.error}',
+              overflow: TextOverflow.ellipsis,
+            );
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
               return Container();

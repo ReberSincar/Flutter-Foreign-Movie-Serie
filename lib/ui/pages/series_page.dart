@@ -58,6 +58,7 @@ class _SeriesPageState extends State<SeriesPage>
     return Center(
       child: Text(
         "series_no_serie".tr,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(color: Colors.white),
       ),
     );
