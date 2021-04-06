@@ -85,78 +85,77 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  ListView buildResultList(AsyncSnapshot<QuerySnapshot> snapshot) {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: AlwaysScrollableScrollPhysics(),
-      itemCount: snapshot.data.docs.length,
-      itemBuilder: (BuildContext context, int index) {
-        var document = snapshot.data.docs[index];
-        var model;
-        bool isSerie = document.data()["type"] == 0 ? true : false;
-        if (isSerie) {
-          model = new Serie.fromJson(document.id, document.data());
-        } else {
-          model = new Movie.fromJson(document.id, document.data());
-        }
-        return buildSearchResultContainer(isSerie, model);
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Divider(color: Colors.white, indent: 15, endIndent: 15),
-        );
-      },
+  Padding buildResultList(AsyncSnapshot<QuerySnapshot> snapshot) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18),
+      child: ListView.separated(
+        shrinkWrap: true,
+        physics: AlwaysScrollableScrollPhysics(),
+        itemCount: snapshot.data.docs.length,
+        itemBuilder: (BuildContext context, int index) {
+          var document = snapshot.data.docs[index];
+          var model;
+          bool isSerie = document.data()["type"] == 0 ? true : false;
+          if (isSerie) {
+            model = new Serie.fromJson(document.id, document.data());
+          } else {
+            model = new Movie.fromJson(document.id, document.data());
+          }
+          return buildSearchResultContainer(isSerie, model);
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Divider(color: Colors.white, indent: 15, endIndent: 15),
+          );
+        },
+      ),
     );
   }
 
-  Padding buildSearchResultContainer(bool isSerie, model) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 18),
-      child: InkWell(
-        onTap: () {
-          if (isSerie) {
-            serieController.selectedSerie = model;
-            episodeController.changeSerie(model);
-            Get.to(SerieDetailsPage());
-          } else {
-            movieController.selectedMovie = model;
-            Get.to(MovieDetailPage());
-          }
-        },
-        focusColor: Colors.red,
-        child: Row(
-          children: [
-            Container(
-              child: CachedNetworkImage(
-                  imageUrl: model.contentImage,
-                  width: 100,
-                  height: 100,
-                  placeholder: (context, url) {
-                    return Center(
-                      child: SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: RefreshProgressIndicator(
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.grey),
-                        ),
+  InkWell buildSearchResultContainer(bool isSerie, model) {
+    return InkWell(
+      onTap: () {
+        if (isSerie) {
+          serieController.selectedSerie = model;
+          episodeController.changeSerie(model);
+          Get.to(SerieDetailsPage());
+        } else {
+          movieController.selectedMovie = model;
+          Get.to(MovieDetailPage());
+        }
+      },
+      focusColor: Colors.red,
+      child: Row(
+        children: [
+          Container(
+            child: CachedNetworkImage(
+                imageUrl: model.contentImage,
+                width: 100,
+                height: 100,
+                placeholder: (context, url) {
+                  return Center(
+                    child: SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: RefreshProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
                       ),
-                    );
-                  },
-                  fit: BoxFit.cover),
+                    ),
+                  );
+                },
+                fit: BoxFit.cover),
+          ),
+          SizedBox(width: 10),
+          Text(
+            model.name,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
             ),
-            SizedBox(width: 10),
-            Text(
-              model.name,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-              overflow: TextOverflow.ellipsis,
-            )
-          ],
-        ),
+            overflow: TextOverflow.ellipsis,
+          )
+        ],
       ),
     );
   }

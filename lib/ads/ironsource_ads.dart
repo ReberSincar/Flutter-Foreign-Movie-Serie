@@ -74,6 +74,8 @@ class IronSourceAdsController extends GetxController
       IronSource.showRewardedVideol();
     } else {
       openPlayer();
+      loadRewarded();
+      print("RewardedVideo not available");
     }
   }
 
